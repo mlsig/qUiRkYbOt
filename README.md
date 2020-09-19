@@ -12,7 +12,7 @@ Invite your bot to a blank server for testing
 
 Install node: sudo apt install nodejs
 
-Install dscord.js: npm i discord.js
+Install discord.js: npm i discord.js
 
 Install dotenv: npm i dotenv
 
