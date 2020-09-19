@@ -28,8 +28,7 @@ client.on('message', message => {
         }
         if(command === 'ping'){
             client.commands.get('ping').execute(message, args);
-});
+        }
     }
-        } 
-
-Bot.login("insert token");
+});
+Bot.login(BOT_TOKEN);
