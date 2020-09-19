@@ -10,9 +10,6 @@ Bot.commands = new Discord.Collection();
 //file system module
 const fs = require('fs');
 
-//helps interact with reddit api
-const { RedditSimple } = require("reddit-simple");
-
 const prefix = '!';
 
 //ensures all files are JS
