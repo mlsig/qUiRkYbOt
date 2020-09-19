@@ -1,11 +1,19 @@
+//grabs important token for discord bot
 require('dotenv').config();
 const BOT_TOKEN = process.env.BOT_TOKEN
-const Discord = require('discord.js')
 
+//helps interact with discord api
+const Discord = require('discord.js')
 const Bot = new Discord.Client();
-const prefix = '!';
-const fs = require('fs');
 Bot.commands = new Discord.Collection();
+
+//file system module
+const fs = require('fs');
+
+//helps interact with reddit api
+const { RedditSimple } = require("reddit-simple");
+
+const prefix = '!';
 
 //ensures all files are JS
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
@@ -15,13 +23,15 @@ for(const file of commandFiles){
     Bot.commands.set(command.name, command);
 }
 
+//starting message
 Bot.once('ready', () => {
     console.log("Let's get quirky!! :D")
 });
 
+//
 Bot.on('message', message => {
-        const args = message.content.slice(prefix.length).split(/ +/);
-        const command = args.shift().toLowerCase();
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
 
     if(message.content.startsWith(prefix) || message.author.bot){
         if(command === 'quirky'){
